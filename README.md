@@ -6,3 +6,6 @@ Just a collection of test PowerShell scripts. Not for production environments. :
 Reads CSV file named users.csv placed in same folder as CreatUsers script.
 
 CSV headers: fname,lname,name,username,password,email,dept,atm,atmpassword,ext,pin
+
+## HardLink.ps1 - Hard-link ActiveDirectory and O365 Exchange object
+Uses guid of ActiveDirectory object to hard-link on-premise AD object to cloud-created O365 Exchange object.
