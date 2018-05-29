@@ -1,6 +1,8 @@
 # Commenting and documentation
 
-$users = import-csv users.csv
+param([string] $file = "users.csv")
+
+$users = import-csv $file
 $exclude = @()
 $path = "OU=Users Active,OU=Accurate Background,DC=accuratebackground,DC=int"
 $description = ""
