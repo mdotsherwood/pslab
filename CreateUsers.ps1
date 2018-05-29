@@ -1,3 +1,5 @@
+# Commenting and documentation
+
 $users = import-csv users.csv
 $exclude = @()
 $path = "OU=Users,OU=testllc,DC=testenv,DC=int"
@@ -9,21 +11,21 @@ Write-Host "Creating users...."
 foreach($user in $users){
 
 	Write-Host "Creating user for: $($user.name)"
-	
+
 	if(dsquery user -samid $user.username){
-	
+
 		Write-Host "Skipping account creation for: $($user.name). Username $($user.username) already exists."
-		
+
 		$exclude += $user
-		
+
 	}
 	else {
-	
+
 		Write-Host "Using username: $($user.username)..."
-		
+
 		$HomeDrive = "X"
 		$HomeDirectory = "\\datavault01\users\users\$($user.username)"
-		
+
 		if($user.dept -eq "IVAN"){
 			$path = "OU=IVAN,OU=Users,OU=testllc,DC=testenv,DC=int"
 			$description = "Verifications Researcher"
@@ -45,23 +47,23 @@ foreach($user in $users){
 		else{
 			$path = "OU=Users,OU=testllc,DC=testenv,DC=int"
 		}
-			
+
 		new-aduser -samaccountname $user.username -userprincipalname $user.email -displayname $user.name -name $user.name -givenname $user.fname -surname $user.lname -emailaddress $user.email -homephone "off" -Path $path -AccountPassword (ConvertTo-SecureString -AsPlainText $user.password -Force) -Enabled 1 -description $description -title $description -homedrive $HomeDrive -homedirectory $homedirectory -Department $dept -ScriptPath $logonscript -OtherAttributes @{'pager'="e3"}
-	
+
 	}
-	
+
 }
 
 Write-Host "Adding users to groups..."
 
 foreach($user in $users){
 	if($exclude.contains($user)){
-	
+
 		Write-Host "Excluding $($user.username)..."
-		
+
 	}
 	else {
-		
+
 		if($user.dept -eq "IVAN"){
 			$tempun = "ivanuser"
 		}
@@ -74,11 +76,11 @@ foreach($user in $users){
 		else {
 			$tempun = "tempuser"
 		}
-		
+
 		Write-Host "Adding $($user.username) to the same group as $($tempun)..."
-		
+
 		(Get-AdUser -identity $tempun -properties memberof).memberof | Add-ADGroupMember -Members $user.username
-		
+
 	}
 
 }
