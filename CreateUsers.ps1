@@ -48,6 +48,8 @@ foreach($user in $users){
 		}
 		else{
 			$path = "CN=Users,DC=testenv,DC=int"
+			$description = ""
+			$logonscript = ""
 		}
 
 		new-aduser -samaccountname $user.username -userprincipalname $user.email -displayname $user.name -name $user.name -givenname $user.fname -surname $user.lname -emailaddress $user.email -homephone "off" -Path $path -AccountPassword (ConvertTo-SecureString -AsPlainText $user.password -Force) -Enabled 1 -description $description -title $description -homedrive $HomeDrive -homedirectory $homedirectory -Department $dept -ScriptPath $logonscript -OtherAttributes @{'pager'="e3"}
