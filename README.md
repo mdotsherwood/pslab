@@ -1,4 +1,4 @@
-# pslab
+## pslab
 
 Just a collection of test PowerShell scripts. Not for production environments. :)
 
