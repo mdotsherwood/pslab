@@ -6,7 +6,7 @@ $path = "OU=Users,OU=testllc,DC=testenv,DC=int"
 $description = ""
 $logonscript = ""
 
-Write-Host "Creating users...."
+Write-Host "Creating users..."
 
 foreach($user in $users){
 
