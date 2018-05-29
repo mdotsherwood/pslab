@@ -1,4 +1,4 @@
-# Commenting and documentation
+# Please add commenting and documentation!
 
 param([string] $file = "users.csv")
 
