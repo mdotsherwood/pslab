@@ -2,6 +2,8 @@
 
 Just a collection of test PowerShell scripts. Quickly written proof-of-concepts.
 
+All code written with a particular environment in mind so you will need to make modifications in order for these scripts to work in a different environment.
+
 Things To Do Across The Board: logging, error handling, data validation, documentation, testing, everything.
 
 **!!! Not for production environments !!!** :)
