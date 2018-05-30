@@ -8,9 +8,9 @@ foreach($computer in $computers){
   Write-Host "Restarting $($computer.name)..."
 
   invoke-command -scriptblock {
-  		shutdown /m $computer.name /r /f /t 5
-  	} -ArgumentList $computer.name
-
+    shutdown /m $computer.name /r /f /t 5
+  } -ArgumentList $computer.name
+  
 }
 
 # test branching
