@@ -16,7 +16,7 @@ Usage: `.\RestartComputers.ps1 -OU [OU string]`
 
 This is a work in progress. Currently returns a list of computers in a specified OU that have the `department` attribute set to `RESTART`.
 
-Example: `.\RestartComputers.ps1 -OU "OU=Computers,OU=Accurate Background,DC=testenv,DC=int"`
+Example: `.\RestartComputers.ps1 -OU "OU=Computers,OU=Company Name,DC=testenv,DC=int"`
 
 ## HardLink.ps1 - Hard-link AD and O365 Exchange object
 Uses `GUID` of AD object to hard-link on-premise AD object to cloud-created O365 Exchange object.
