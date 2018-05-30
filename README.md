@@ -11,7 +11,7 @@ Description: Reads CSV `[filename.csv]` and creates AD users based on informatio
 
 CSV headers: `fname,lname,name,username,password,email,dept,atm,atmpassword,ext,pin`
 
-## RestartComputers.ps1 - Restarts computers in specified AD Organization Unit (OU)
+## RestartComputers.ps1 - Restarts computers in specified AD Organizational Unit (OU)
 Usage: `.\RestartComputers.ps1 -OU [OU string]`
 
 This is a work in progress. Currently returns a list of computers in a specified OU that have the `department` attribute set to `RESTART`.
