@@ -13,7 +13,7 @@ Usage: `.\CreateUsers.ps1 -file [filename.csv]`
 
 Description: Reads CSV `[filename.csv]` and creates AD users based on information provided. If `-file` switch is not used, filename defaults to `users.csv`. Adds user to appropriate OU, Security Groups and Distribution Groups based on department (IVAN, PR, CS). Also pre-fills following attributes: department, title, description, home (off), pager (e3), home directory, logon script.
 
-CSV headers: `fname,lname,name,username,password,email,dept,atm,atmpassword,ext,pin`
+CSV header requirements: `fname,lname,name,username,password,email,dept,atm,atmpassword,ext,pin`
 
 Example: `.\CreateUsers.ps1 -file "C:\new_users_05202018.csv"`
 
