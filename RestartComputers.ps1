@@ -6,3 +6,5 @@ Write-Host "Computers to restart: "
 foreach($computer in $computers){
   $computer.name
 }
+
+# test branching
