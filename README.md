@@ -16,7 +16,9 @@ CSV headers: `fname,lname,name,username,password,email,dept,atm,atmpassword,ext,
 ## RestartComputers.ps1 - Restarts computers in specified AD Organizational Unit (OU)
 Usage: `.\RestartComputers.ps1 -OU [OU string]`
 
-This is a work in progress. Currently returns a list of computers in a specified OU that have the `department` attribute set to `RESTART`.
+If `-OU` option is not used, default OU is set to: `"CN=Computers,DC=testenv,DC=int"`
+
+Description: This is a work in progress like all the rest. Currently returns a list of computers in a specified OU that have the `department` attribute set to `RESTART` and then issues a restart command to each computer individually. Test with caution.
 
 Example: `.\RestartComputers.ps1 -OU "OU=Computers,OU=Company Name,DC=testenv,DC=int"`
 
