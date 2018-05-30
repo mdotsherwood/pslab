@@ -11,7 +11,7 @@ Things To Do Across The Board: logging, error handling, data validation, documen
 ## CreateUsers.ps1 - Create Active Directory (AD) users
 Usage: `.\CreateUsers.ps1 -file [filename.csv]`
 
-Description: Reads CSV `[filename.csv]` and creates AD users based on information provided. If `-file` switch is not used, filename defaults to `users.csv`.
+Description: Reads CSV `[filename.csv]` and creates AD users based on information provided. If `-file` switch is not used, filename defaults to `users.csv`. Adds user to appropriate OU, Security Groups and Distribution Groups based on department (IVAN, PR, CS). Also pre-fills following attributes: department, title, description, home (off), pager (e3), home directory, logon script.
 
 CSV headers: `fname,lname,name,username,password,email,dept,atm,atmpassword,ext,pin`
 
