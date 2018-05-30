@@ -15,6 +15,8 @@ Description: Reads CSV `[filename.csv]` and creates AD users based on informatio
 
 CSV headers: `fname,lname,name,username,password,email,dept,atm,atmpassword,ext,pin`
 
+Example: `.\CreateUsers.ps1 -file "C:\new_users_05202018.csv"`
+
 ## RestartComputers.ps1 - Restarts computers in specified AD Organizational Unit (OU)
 Usage: `.\RestartComputers.ps1 -OU [OU string]`
 
