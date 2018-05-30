@@ -1,10 +1,10 @@
-# Commenting and documentation
+# Please add commenting and documentation!
 
 param([string] $file = "users.csv")
 
 $users = import-csv $file
 $exclude = @()
-$path = "OU=Users Active,OU=Accurate Background,DC=accuratebackground,DC=int"
+$path = "CN=Users,DC=testenv,DC=int"
 $description = ""
 $logonscript = ""
 
@@ -29,25 +29,27 @@ foreach($user in $users){
 		$HomeDirectory = "\\datavault01\users\users\$($user.username)"
 
 		if($user.dept -eq "IVAN"){
-			$path = "OU=Ivan Users,OU=Verifications,OU=Accurate Background,DC=accuratebackground,DC=int"
+			$path = "OU=IVAN Users,OU=Verifications,OU=Accurate Background,DC=testenv,DC=int"
 			$description = "Verifications Researcher"
 			$dept = "Verifications"
 			$logonscript = "DFSVERIFICATIONSLOGIN.bat"
 		}
 		elseif($user.dept -eq "PR"){
-			$path = "OU=Hirease Users,OU=Hirease,OU=Accurate Background,DC=accuratebackground,DC=int"
+			$path = "OU=Public Records Users,OU=Operations,OU=Accurate Background,DC=testenv,DC=int"
 			$description = "Public Records Researcher"
 			$dept = "Public Records"
 			$logonscript = "DFSPUBLICRECORDSLOGIN.bat"
 		}
 		elseif($user.dept -eq "CS"){
-			$path = "OU=Client Services Users,OU=Client Services,OU=Accurate Background,DC=accuratebackground,DC=int"
+			$path = "OU=Client Services Users,OU=Client Services,OU=Accurate Background,DC=testenv,DC=int"
 			$description = "Client Service Representative"
 			$dept = "Client Services"
 			$logonscript = "DFSCLIENTSERVICESLOGIN.bat"
 		}
 		else{
-			$path = "OU=Users Active,OU=Accurate Background,DC=accuratebackground,DC=int"
+			$path = "CN=Users,DC=testenv,DC=int"
+			$description = ""
+			$logonscript = ""
 		}
 
 		new-aduser -samaccountname $user.username -userprincipalname $user.email -displayname $user.name -name $user.name -givenname $user.fname -surname $user.lname -emailaddress $user.email -homephone "off" -Path $path -AccountPassword (ConvertTo-SecureString -AsPlainText $user.password -Force) -Enabled 1 -description $description -title $description -homedrive $HomeDrive -homedirectory $homedirectory -Department $dept -ScriptPath $logonscript -OtherAttributes @{'pager'="e3"}
