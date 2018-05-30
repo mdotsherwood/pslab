@@ -1,6 +1,6 @@
 # pslab
 
-Just a collection of test PowerShell scripts. Quickly written proof-of-concepts. 
+Just a collection of test PowerShell scripts. Quickly written proof-of-concepts.
 
 Things To Do Across The Board: logging, error handling, data validation, documentation, testing, everything.
 
