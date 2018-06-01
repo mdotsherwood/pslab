@@ -18,15 +18,11 @@ CSV header requirements: `fname,lname,name,username,password,email,dept`
 Example: `.\CreateUsers.ps1 -file "C:\new_users_05202018.csv"`
 
 ## RestartComputers.ps1 - Restarts computers in specified AD Organizational Unit (OU)
-Usage: `.\RestartComputers.ps1 -OU [OU string]`
+Usage: `.\RestartComputers.ps1 [-OU <string>="CN=Computers,DC=testenv,DC=int"] [-Attribute [LDAP <string>="department"] [-Match <string>="RESTART"`
 
-If `-OU` option is not used, default OU is set to: `"CN=Computers,DC=testenv,DC=int"`
+Description: Retrieves a list of computers that are in a specified `OU`. Computers are only added to the list if the `Attribute` specified is equal to the `Match` string specified. Script then issues a restart command to each computer individually. Test with caution.
 
-Description: Retrieves a list of computers in a specified OU that have the `department` attribute set to `RESTART` and then issues a restart command to each computer individually. Test with caution.
-
-The `department` attribute is used out of convenience but script can be modified to reference other unused attributes as well.
-
-Example: `.\RestartComputers.ps1 -OU "OU=Computers,OU=Company Name,DC=testenv,DC=int"`
+Example: `.\RestartComputers.ps1 -OU "OU=Computers,OU=Company Name,DC=testenv,DC=int" -Attribute "department" -Match "RESTART"`
 
 ## HardLink.ps1 - Hard-link AD and O365 Exchange object
 Uses `GUID` of AD object to hard-link on-premise AD object to cloud-created O365 Exchange object.
