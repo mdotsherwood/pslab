@@ -9,9 +9,9 @@ Things To Do Across The Board: logging, error handling, data validation, documen
 **!!! Not for production environments !!!** :)
 
 ## RestartComputers.ps1 - Restarts computers in specified Active Directory (AD) Organizational Unit (OU)
-Usage: `.\RestartComputers.ps1 [-OU <string>="CN=Computers,DC=testenv,DC=int"] [-Attribute <string>="department"] [-Match <string>="RESTART"]`
-
 Description: Retrieves a list of computers that are in a specified `OU`. Computers are only added to the list if the computer LDAP `Attribute` specified has a value equal to the `Match` string specified. Script then issues a restart command to each computer individually. Test with caution.
+
+Usage: `.\RestartComputers.ps1 [-OU <string>="CN=Computers,DC=testenv,DC=int"] [-Attribute <string>="department"] [-Match <string>="RESTART"]`
 
 `-OU <string>`  - Specify distinguised name of OU.
 
@@ -19,15 +19,14 @@ Description: Retrieves a list of computers that are in a specified `OU`. Compute
 
 `-Match <string>` - Specify string to match to attribute value.
 
-
 Example: `.\RestartComputers.ps1 -OU "OU=Computers,OU=Company Name,DC=testenv,DC=int" -Attribute "department" -Match "RESTART"`
 
 Above example reboots computers in the `"OU=Computers,OU=Company Name,DC=testenv,DC=int"` OU if their `department` LDAP attributes are set to `RESTART`.
 
 ## CreateUsers.ps1 - Create AD users
-Usage: `.\CreateUsers.ps1 -file [filename.csv]`
-
 Description: Reads CSV `[filename.csv]` and creates AD users based on information provided. If `-file` switch is not used, filename defaults to `users.csv`. Adds user to appropriate OU, Security Groups and Distribution Groups based on department (IVAN, PR, CS). Also pre-fills following attributes: name, email, department, title, description, home (off), pager (e3), home directory, logon script. Sets password.
+
+Usage: `.\CreateUsers.ps1 -file [filename.csv]`
 
 CSV header requirements: `fname,lname,name,username,password,email,dept`
 
