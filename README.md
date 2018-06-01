@@ -18,7 +18,7 @@ CSV header requirements: `fname,lname,name,username,password,email,dept`
 Example: `.\CreateUsers.ps1 -file "C:\new_users_05202018.csv"`
 
 ## RestartComputers.ps1 - Restarts computers in specified AD Organizational Unit (OU)
-Usage: `.\RestartComputers.ps1 [-OU <string>="CN=Computers,DC=testenv,DC=int"] [-Attribute [LDAP <string>="department"] [-Match <string>="RESTART"`
+Usage: `.\RestartComputers.ps1 [-OU <string>="CN=Computers,DC=testenv,DC=int"] [-Attribute [LDAP <string>="department"] [-Match <string>="RESTART"]`
 
 Description: Retrieves a list of computers that are in a specified `OU`. Computers are only added to the list if the `Attribute` specified is equal to the `Match` string specified. Script then issues a restart command to each computer individually. Test with caution.
 
