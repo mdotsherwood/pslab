@@ -1,5 +1,9 @@
 param([string] $OU = "CN=Computers,DC=tesdtenv,DC=int")
 
+Write-Host "Starting reboot script..."
+$date = Get-Date -format g
+Write-Host "Date/Time: $($date)"
+Write-Host "Retrieving list of computers..."
 try{
 	$computers = Get-ADComputer -LDAPFilter "(department=RESTART)" -SearchBase $OU -ErrorAction Stop
 }
@@ -9,10 +13,6 @@ catch{
 	Write-Host "Error Message: $($ErrorMessage)"
 	Break
 }
-
-Write-Host "Starting reboot script..."
-$date = Get-Date -format g
-Write-Host "Date/Time: $($date)"
 
 foreach($computer in $computers){
 
