@@ -4,6 +4,7 @@ Write-Host "Starting reboot script..."
 $date = Get-Date -format g
 Write-Host "Date/Time: $($date)"
 Write-Host "Retrieving list of computers..."
+
 try{
 	$computers = Get-ADComputer -LDAPFilter "($attribute=$match)" -SearchBase $OU -ErrorAction Stop
 }
@@ -15,7 +16,6 @@ catch{
 }
 
 foreach($computer in $computers){
-
 	Write-Host "=========="
 	Write-Host "Restarting $($computer.name)..."
 	try{
@@ -27,8 +27,8 @@ foreach($computer in $computers){
 		Write-Host "Failed to restart $($computer.name)."
 		Write-Host "Error: $($ErrorMessage)"
 	}
-
 }
+
 $date = Get-Date -Format g
 Write-Host "=========="
 Write-Host "Done."
