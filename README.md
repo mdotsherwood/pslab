@@ -17,7 +17,7 @@ Usage: `.\RestartComputers.ps1 [-OU <string>="CN=Computers,DC=testenv,DC=int"] [
 
 `-Attribute <string>` - Specify LDAP attribute for comparison.
 
-`-Match <string>` - Specify string to match to attribute value.
+`-Match <string>` - Specify string to compare to attribute value.
 
 Example: `.\RestartComputers.ps1 -OU "OU=Computers,OU=Company Name,DC=testenv,DC=int" -Attribute "department" -Match "RESTART"`
 
