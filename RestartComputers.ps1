@@ -28,10 +28,6 @@ foreach($computer in $computers){
 		Write-Host "Error: $($ErrorMessage)"
 	}
 
-  # OLD SCHOOL WAY
-  #invoke-command -scriptblock {
-  #  shutdown /m $computer.name /r /f /t 5
-  #} -ArgumentList $computer.name
 }
 $date = Get-Date -Format g
 Write-Host "=========="
