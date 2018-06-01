@@ -21,7 +21,7 @@ Usage: `.\RestartComputers.ps1 [-OU <string>="CN=Computers,DC=testenv,DC=int"] [
 
 Example: `.\RestartComputers.ps1 -OU "OU=Computers,OU=Company Name,DC=testenv,DC=int" -Attribute "department" -Match "RESTART"`
 
-Above example reboots computers in the `"OU=Computers,OU=Company Name,DC=testenv,DC=int"` OU if their `department` LDAP attributes are set to `RESTART`.
+Above example reboots computers in the `"OU=Computers,OU=Company Name,DC=testenv,DC=int"` OU if their respective `department` LDAP attributes are set to `RESTART`.
 
 ## CreateUsers.ps1 - Create AD users
 Description: Reads CSV `[filename.csv]` and creates AD users based on information provided. If `-file` switch is not used, filename defaults to `users.csv`. Adds user to appropriate OU, Security Groups and Distribution Groups based on department (IVAN, PR, CS). Also pre-fills following attributes: name, email, department, title, description, home (off), pager (e3), home directory, logon script. Sets password.
