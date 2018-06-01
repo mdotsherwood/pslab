@@ -1,11 +1,14 @@
-param([string] $OU = "CN=Computers,DC=tesdtenv,DC=int")
+param([string] $OU = "CN=Computers,DC=tesftenv,DC=int")
+
+$attribute="department"
+$attrstrmatch="RESTART"
 
 Write-Host "Starting reboot script..."
 $date = Get-Date -format g
 Write-Host "Date/Time: $($date)"
 Write-Host "Retrieving list of computers..."
 try{
-	$computers = Get-ADComputer -LDAPFilter "(department=RESTART)" -SearchBase $OU -ErrorAction Stop
+	$computers = Get-ADComputer -LDAPFilter "($attribute=$attrstrmatch)" -SearchBase $OU -ErrorAction Stop
 }
 catch{
 	$ErrorMessage = $_.Exception.Message
