@@ -1,6 +1,14 @@
-param([string] $OU = "CN=Computers,DC=testenv,DC=int")
+param([string] $OU = "CN=Computers,DC=tesdtenv,DC=int")
 
-$computers = Get-ADComputer -LDAPFilter "(department=RESTART)" -SearchBase $OU
+try{
+	$computers = Get-ADComputer -LDAPFilter "(department=RESTART)" -SearchBase $OU -ErrorAction Stop
+}
+catch{
+	$ErrorMessage = $_.Exception.Message
+	Write-Host "An error has occurred while retrieving a list of computers."
+	Write-Host "Error Message: $($ErrorMessage)"
+	Break
+}
 
 Write-Host "Starting reboot script..."
 $date = Get-Date -format g
