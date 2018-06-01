@@ -4,9 +4,9 @@ Just a collection of test PowerShell scripts. Quickly written proof-of-concepts.
 
 All code written with a particular environment in mind so you will need to make modifications in order for these scripts to work in your environment.
 
-Things To Do Across The Board: logging, error handling, data validation, documentation, testing, everything.
+Things To Do Across The Board: logging, error handling, data validation, documentation, testing.
 
-**!!! Not for production environments !!!** :)
+**!!! Not for production environments !!!**
 
 ## RestartComputers.ps1 - Restarts computers in specified Active Directory (AD) Organizational Unit (OU)
 Description: Retrieves a list of computers that are in a specified `OU`. Computers are only added to the list if the computer LDAP `Attribute` specified has a value equal to the `Match` string specified. Script then issues a restart command to each computer individually. Test with caution.
