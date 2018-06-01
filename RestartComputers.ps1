@@ -1,10 +1,13 @@
+#Define parameters and default values
 param([string] $OU = "CN=Computers,DC=testenv,DC=int", [string] $attribute="department", [string] $match="RESTART")
 
+#Print informational messages
 Write-Host "Starting reboot script..."
 $date = Get-Date -format g
 Write-Host "Date/Time: $($date)"
 Write-Host "Retrieving list of computers..."
 
+#Get a list of computers based on OU membership and attribute value. Print error message and terminate if unsuccessful.
 try{
 	$computers = Get-ADComputer -LDAPFilter "($attribute=$match)" -SearchBase $OU -ErrorAction Stop
 }
@@ -15,6 +18,7 @@ catch{
 	Break
 }
 
+#Iterate through computers and restart each. If restart command is unable to be issued, print error and move along.
 foreach($computer in $computers){
 	Write-Host "=========="
 	Write-Host "Restarting $($computer.name)..."
@@ -29,6 +33,7 @@ foreach($computer in $computers){
 	}
 }
 
+#Print informational messages
 $date = Get-Date -Format g
 Write-Host "=========="
 Write-Host "Done."
