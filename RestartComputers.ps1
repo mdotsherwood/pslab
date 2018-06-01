@@ -1,4 +1,4 @@
-param([string] $OU = "CN=Computers,DC=tesftenv,DC=int", [string] $attribute="department", [string] $match="RESTART")
+param([string] $OU = "CN=Computers,DC=testenv,DC=int", [string] $attribute="department", [string] $match="RESTART")
 
 Write-Host "Starting reboot script..."
 $date = Get-Date -format g
