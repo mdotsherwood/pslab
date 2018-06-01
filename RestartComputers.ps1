@@ -17,7 +17,7 @@ Write-Host "Date/Time: $($date)"
 foreach($computer in $computers){
 
 	Write-Host "=========="
-  Write-Host "Restarting $($computer.name)..."
+	Write-Host "Restarting $($computer.name)..."
 	try{
 		Restart-Computer -ComputerName $computer.name -ErrorAction Stop
 		Write-Host "Restart command issued successfully to $($computer.name)."
