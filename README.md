@@ -22,7 +22,7 @@ Usage: `.\RestartComputers.ps1 -OU [OU string]`
 
 If `-OU` option is not used, default OU is set to: `"CN=Computers,DC=testenv,DC=int"`
 
-Description: This is a work in progress like all the rest. Currently returns a list of computers in a specified OU that have the `department` attribute set to `RESTART` and then issues a restart command to each computer individually. Test with caution.
+Description: Retrieves a list of computers in a specified OU that have the `department` attribute set to `RESTART` and then issues a restart command to each computer individually. Test with caution.
 
 The `department` attribute is used out of convenience but script can be modified to reference other unused attributes as well.
 
