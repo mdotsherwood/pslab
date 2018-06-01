@@ -14,10 +14,15 @@ Usage: `.\RestartComputers.ps1 [-OU <string>="CN=Computers,DC=testenv,DC=int"] [
 Description: Retrieves a list of computers that are in a specified `OU`. Computers are only added to the list if the computer LDAP `Attribute` specified has a value equal to the `Match` string specified. Script then issues a restart command to each computer individually. Test with caution.
 
 `-OU <string>`  - Specify distinguised name of OU.
+
 `-Attribute <string>` - Specify LDAP attribute for comparison.
+
 `-Match <string>` - Specify string to match to attribute value.
 
+
 Example: `.\RestartComputers.ps1 -OU "OU=Computers,OU=Company Name,DC=testenv,DC=int" -Attribute "department" -Match "RESTART"`
+
+Above example reboots computers in the `"OU=Computers,OU=Company Name,DC=testenv,DC=int"` OU if their `department` LDAP attributes are set to `RESTART`.
 
 ## CreateUsers.ps1 - Create AD users
 Usage: `.\CreateUsers.ps1 -file [filename.csv]`
