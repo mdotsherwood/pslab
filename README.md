@@ -1,6 +1,6 @@
 # pslab
 
-Just a collection of test PowerShell scripts. Quickly written proof-of-concepts...
+Just a collection of test PowerShell scripts. Quickly written proof-of-concepts.
 
 All code written with a particular environment in mind so you will need to make modifications in order for these scripts to work in your environment.
 
