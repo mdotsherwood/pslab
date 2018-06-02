@@ -1,5 +1,5 @@
 #Define parameters and default values
-param([string] $OU = "CN=Computers,DC=testenv,DC=int", [string] $attribute="department", [string] $match="RESTART")
+param([string] $OU = "CN=Computers,DC=testenv,DC=int", [string] $attribute="department", [string] $match="RESTART",[switch]$v)
 
 $filename = 'C:\Reboots.log'
 #Print informational messages
