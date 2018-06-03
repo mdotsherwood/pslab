@@ -6,12 +6,13 @@
 		<logon>DFSVERIFICATIONSLOGIN.bat</logon>
 		<ou>OU=IVAN Users,OU=Verifications,OU=Accurate Background,DC=testenv,DC=int</ou>
 		<sgroups>
+			<sgroup>cs</sgroup>
 			<sgroup>IVAN</sgroup>
 		</sgroups>
 	</Department>
 
 	<Department code="CS">
-		<dept>CS</dept>
+		<dept>Client Services</dept>
 		<title>Client Services Representative</title>
 		<logon>DFSCLIENTSERVICESLOGIN.bat</logon>
 		<ou>OU=Client Services Users,OU=Client Services,OU=Accurate Background,DC=testenv,DC=int</ou>
@@ -21,7 +22,7 @@
 	</Department>
 
 	<Department code="PR">
-		<dept>PR</dept>
+		<dept>Public Records</dept>
 		<title>Public Records Researcher</title>
 		<logon>DFSPUBLICRECORDS.bat</logon>
 		<ou>OU=Public Records Users,OU=Operations,OU=Accurate Background,DC=testenv,DC=int</ou>
