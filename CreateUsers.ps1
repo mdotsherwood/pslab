@@ -2,33 +2,28 @@
 
 param([string] $file = "users.csv")
 
+#import CSV containing list of users to create
 $users = import-csv $file
 
 Write-Host "Reading template configuration..."
 $TemplateFile = ".\DeptTemplate.xml"
 [xml]$DeptTemplates = Get-Content $TemplateFile
 
+#Load department templates
 Write-Host "Creating template objects from template configuration file...."
 $IVAN_T = Select-XML -XML $DeptTemplates -Xpath "//Department[@code = 'IVAN']"
 $CS_T = Select-XML -XML $DeptTemplates -Xpath "//Department[@code = 'CS']"
 $PR_T = Select-XML -XML $DeptTemplates -Xpath "//Department[@code = 'PR']"
 
-$path = $CS_T.node.ou
-$description = $CS_T.node.title
-$dept = $CS_T.node.dept
-$logonscript = $CS_T.node.logon
-
-Write-Host $path
-Write-Host $Description
-WRite-Host $dept
-Write-Host $logonscript
-
+#init vars
 $exclude = @()
 $usrgrps = @()
 $path = "CN=Users,DC=testenv,DC=int"
 $description = ""
 $logonscript = ""
+$dept = ""
 
+#Step through list of users. Test to see if user exists. If exists, don't do anything. Else, move forward.
 Write-Host "Creating users..."
 
 foreach($user in $users){
@@ -50,6 +45,7 @@ foreach($user in $users){
 		$HomeDrive = "X"
 		$HomeDirectory = "\\datavault01\users\users\$($user.username)"
 
+		#Apply attributes based on department template
 		if($user.dept -eq "IVAN"){
 			$path = $IVAN_T.node.ou
 			$description = $IVAN_T.node.title
@@ -78,8 +74,10 @@ foreach($user in $users){
 			$usrgrps = @()
 		}
 
+		#Actual add user command
 		new-aduser -samaccountname $user.username -userprincipalname $user.email -displayname $user.name -name $user.name -givenname $user.fname -surname $user.lname -emailaddress $user.email -homephone "off" -Path $path -AccountPassword (ConvertTo-SecureString -AsPlainText $user.password -Force) -Enabled 1 -description $description -title $description -homedrive $HomeDrive -homedirectory $homedirectory -Department $dept -ScriptPath $logonscript -OtherAttributes @{'pager'="e3"}
 
+		#Add user to groups specified in department template
 		foreach($sgrp in $usrgrps.node.sgroups.sgroup){
 			WRite-Host "Adding to group: $($sgrp)..."
 			Add-ADGroupMember -Members $user.username -Identity $sgrp
@@ -89,7 +87,7 @@ foreach($user in $users){
 
 }
 
-<#
+<# Old Code. Copies existing template user's groups.
 foreach($user in $users){
 	if($exclude.contains($user)){
 
