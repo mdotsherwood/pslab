@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Departments>
-	<Department>
-		<name>IVAN</name>
-		<description>Verifications Researcher</description>
+	<Department code="IVAN">
+		<dept>IVAN</dept>
+		<title>Verifications Researcher</title>
 		<logon>DFSVERIFICATIONSLOGIN.bat</logon>
 		<ou>OU=IVAN Users,OU=Verifications,OU=Accurate Background,DC=testenv,DC=int</ou>
-		<groups>
-			<group>IVAN</group>
-		</groups>
+		<sgroups>
+			<sgroup>IVAN</sgroup>
+		</sgroups>
 	</Department>
 
-	<Department>
-		<name>CS</name>
-		<description>Client Services Representative</description>
+	<Department code="CS">
+		<dept>CS</dept>
+		<title>Client Services Representative</title>
 		<logon>DFSCLIENTSERVICESLOGIN.bat</logon>
 		<ou>OU=Client Services Users,OU=Client Services,OU=Accurate Background,DC=testenv,DC=int</ou>
-		<groups>
-			<group>Client Services</group>
-		</groups>
+		<sgroups>
+			<sgroup>Client Services</sgroup>
+		</sgroups>
 	</Department>
 
-	<Department>
-		<name>PR</name>
-		<description>Public Records Researcher</description>
+	<Department code="PR">
+		<dept>PR</dept>
+		<title>Public Records Researcher</title>
 		<logon>DFSPUBLICRECORDS.bat</logon>
 		<ou>OU=Public Records Users,OU=Operations,OU=Accurate Background,DC=testenv,DC=int</ou>
-		<groups>
-			<group>Public Records</group>
-		</groups>
+		<sgroups>
+			<sgroup>Public Records</sgroup>
+		</sgroups>
 	</Department>
 </Departments>
