@@ -9,15 +9,19 @@ Things To Do Across The Board: logging, error handling, data validation, documen
 **!!! Not for production environments !!!**
 
 ## RestartComputers.ps1 - Restarts computers in specified Active Directory (AD) Organizational Unit (OU)
-Description: Retrieves a list of computers that are in a specified `OU`. Computers are only added to the list if the computer LDAP `Attribute` specified has a value equal to the `Match` string specified. Script then issues a restart command to each computer individually. Test with caution.
+Description: Retrieves a list of computers that are in a specified `OU`. Computers are only added to the list if the computer LDAP `Attribute` specified has a value equal to the `Match` string specified. Script then issues a restart command to each computer individually. Logs progress to `C:\Reboots.log` unless otherwise specified. Test with caution.
 
-Usage: `.\RestartComputers.ps1 [-OU <string>="CN=Computers,DC=testenv,DC=int"] [-Attribute <string>="department"] [-Match <string>="RESTART"]`
+Usage: `.\RestartComputers.ps1 [-OU <string>="CN=Computers,DC=testenv,DC=int"] [-Attribute <string>="department"] [-Match <string>="RESTART"] [-v] [-Filename <string>="C:\Reboots.log"]`
 
 `-OU <string>`  - Specify distinguised name of OU.
 
 `-Attribute <string>` - Specify LDAP attribute for comparison.
 
 `-Match <string>` - Specify string to compare to attribute value.
+
+`-v`  - Print output to console.
+
+`-Filename <string>` - Specify file that progress is logged to.
 
 Example: `.\RestartComputers.ps1 -OU "OU=Computers,OU=Company Name,DC=testenv,DC=int" -Attribute "department" -Match "RESTART"`
 
