@@ -1,0 +1,32 @@
+
+<Departments>
+	<Department>
+		<name>IVAN</name>
+		<description>Verifications Researcher</description>
+		<logon>DFSVERIFICATIONSLOGIN.bat</logon>
+		<ou>OU=IVAN Users,OU=Verifications,OU=Accurate Background,DC=testenv,DC=int</ou>
+		<groups>
+			<group>IVAN</group>
+		</groups>
+	</Department>
+
+	<Department>
+		<name>CS</name>
+		<description>Client Services Representative</description>
+		<logon>DFSCLIENTSERVICESLOGIN.bat</logon>
+		<ou>OU=Client Services Users,OU=Client Services,OU=Accurate Background,DC=testenv,DC=int</ou>
+		<groups>
+			<group>Client Services</group>
+		</groups>
+	</Department>
+
+	<Department>
+		<name>PR</name>
+		<description>Public Records Researcher</description>
+		<logon>DFSPUBLICRECORDS.bat</logon>
+		<ou>OU=Public Records Users,OU=Operations,OU=Accurate Background,DC=testenv,DC=int</ou>
+		<groups>
+			<group>Public Records</group>
+		</groups>
+	</Department>
+</Departments>
