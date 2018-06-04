@@ -1,5 +1,5 @@
 
-users.csv
-.sync/StreamsList
-.sync/IgnoreList
 .sync/ID
+.sync/IgnoreList
+.sync/StreamsList
+users.csv
